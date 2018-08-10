@@ -36,9 +36,21 @@ class UserController extends Controller
 
     public function putUser(Request $request, $id)
     {
-        // Buscamos o registro
-
-
+        // Buscando o registro
+        $user = User::find($id);
+        // Checando se foi encontrado o registro
+        if (!$user) {
+            // caso nao seja encontrado retornamos uma mensagem de erro
+            return response()->json(['message' => 'User not found', 404]);
+        }
+        // Caso seja encontrado, setamos os dados da request para update
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        // Gravando os dados no banco
+        $user->save();
+        // retornando o json com o registro atualizado e o código de sucesso
+        return response()->json(['data' => $user], 200);
     }
 
     public function deleteUser($id)
