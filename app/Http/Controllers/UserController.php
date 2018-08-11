@@ -55,6 +55,11 @@ class UserController extends Controller
 
     public function deleteUser($id)
     {
-
+        // Buscando o registro
+        $user = User::find($id);
+        // Excluindo o registro atraves do metodo delete
+        $user->delete();
+        // Retornando uma mensagem
+        return response()->json(['message' => 'User deleted', 200]);
     }
 }
