@@ -10,3 +10,4 @@
 /laravel/npm-debug.log
 /laravel/yarn-error.log
 /laravel/.env
+/vue-laravel/node_modules
