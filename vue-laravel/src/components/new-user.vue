@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label for="password">Senha</label>
-      <input type="text" id="password" class="form-control" required
+      <input type="password" id="password" class="form-control" required
       v-model="user.password">
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
